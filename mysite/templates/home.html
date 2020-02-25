@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br/><br>
+<div class="container-flud">
+
+	<table class="table table-striped table-hover table-bordered">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">Name</th>
+	      <th scope="col">Price</th>
+	      <th scope="col">HIGH-DAY</th>
+	      <th scope="col">LOW-DAY</th>
+	      <th scope="col">Market Cap</th>
+	    </tr>
+	  </thead>
+	<tbody>
+	{% for key,value in price.DISPLAY.items %}
+	    <tr>
+	      <td>{{ key }}</td>
+	      <td>{{ value.USD.PRICE }}</td>
+	      <td>{{ value.USD.HIGHDAY }}</td>
+	      <td>{{ value.USD.LOWDAY }}</td>
+	      <td>{{ value.USD.MKTCAP }}</td>
+	    </tr>
+	{% endfor %}
+	  </tbody>
+	</table>
+
+</div>
+<br/><br>
+
+	<div class='row'>
+		{% for x in api.Data %}
+			<dir class="col-sm" >
+			<div class="card h-100" style="width: 18rem;">
+			
+			  <img src="{{ x.imageurl }}" class="card-img-top" alt="{{ x.source }}">
+			  <div class="card-body">
+			    <h5 class="card-title">{{ x.title }}</h5>
+			    <p class="card-text">{{ x.body }}</p>
+			    <a href="{{ x.url }}" class="btn btn-outline-success btn-sm">Read More..</a>
+			  </div>
+		
+			</div>
+			</dir><br/>
+		{% endfor %}
+	</div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+	
+	{% if notfound %}
+		
+		<h2 align="center">{{ notfound }}</h2>
+
+	{% else %}
+			{% if crypto.Response %}
+				<h2 align="center">{{ crypto.Message }}</h2>
+			{% endif %}
+		{% for key,value in crypto.DISPLAY.items %}
+			<div class="jumbotron">
+				<strong>Name:<h4>{{ key }}</h4></strong>
+				<strong>Price</strong>:{{ value.USD.PRICE }}<br/>
+				<strong>Day High</strong>:{{ value.USD.HIGHDAY }}<br/>
+				<strong>Day Low</strong>:{{ value.USD.LOWDAY }}<br/>
+				<strong>Market Cap</strong>:{{ value.USD.MKTCAP }}<br/>
+			</div>
+		{% endfor %}
+
+	{% endif %}
+
+
+{% endblock %}
