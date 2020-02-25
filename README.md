@@ -1,5 +1,10 @@
+ ## This is a Crypto News Website
+ 
+ 
  - **You can see the Crypto Price and News in  `Home page`**
  - **You can query of specific `Crypto`**
+
+
 
 
 **Home Page View:**
@@ -7,8 +12,11 @@
 
 
 
+
+
 **Latest News on Crypto:**
 ![news](https://user-images.githubusercontent.com/48875593/75289090-94c1bf80-5843-11ea-8e4f-93481e6f2094.png)
+
 
 
 
