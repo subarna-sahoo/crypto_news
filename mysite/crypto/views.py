@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render
 
 # Create your views here.
@@ -7,7 +8,7 @@ def home(request):
 
 	# Grab Crypto Price 
 	url1 = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,XRP,BCH,EOS,LTC,XLM,ADA,USDT,MIOTA,TRXs&tsyms=USD"
-	key = "***REMOVED***"
+	key = os.environ["CRYPTOCOMPARE_API_KEY"]
 	url = url1+'&api_key='+key
 
 	price_request = requests.get(url)
@@ -27,7 +28,7 @@ def prices(request):
 		quote = request.POST['check']
 		quote = quote.upper()
 		url1 = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+quote+"&tsyms=USD"
-		key = "***REMOVED***"
+		key = os.environ["CRYPTOCOMPARE_API_KEY"]
 		url = url1+'&api_key='+key
 		crypto_request = requests.get(url)
 		crypto = json.loads(crypto_request.content)
